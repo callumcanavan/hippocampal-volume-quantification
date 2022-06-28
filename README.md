@@ -3,7 +3,7 @@
 Code for training a 3D image segmentation algorithm and integrating it into a PACS system for calculating hippocampal volumes in cropped brain scans.
 The architecture for the system can be seen below. A DICOM file is checked to see if it has been cropped around the hippocampus through HippoCrop, and if so it is divided into slices along the axial dimension and padded with zeros in the sagittal and coronal planes to form 64x64 slices. This tensor is then passed through a segmentation model, and a DICOM report is created and sent back to the viewer with segmentation results and volume calculations.
 
-<img src="https://github.com/callumcanavan/hippocampal-volume-quantification/blob/main/images/architecture.png" alt="drawing" width="800"/>
+<img src="https://github.com/callumcanavan/hippocampal-volume-quantification/blob/main/images/architecture.png" alt="drawing" width="700"/>
 
 For segmentation, the slices obtained above are forward-propagated in parallel through U-Net [1](https://arxiv.org/pdf/1505.04597.pdf) with 3 output classes. The argmax of the 3x64x64 tensor thus obtained is taken along its first axis, resulting in a 64x64 mask of class predictions (0 for background, 1 for anterior hippocampus and 2 for posterior hippocampus). The sum of voxels for the latter two classes is calculated over each volume of masks to obtain the anterior and posterior hippocampus volumes, respectively, and added together to obtain the total predicted hippocampus volume in units of voxel volume (in the dataset used here this was 1mm3). 
 The training dataset consists of 260 volumes from the “Hippocampus” dataset in the Medical Decathlon competition [2](https://arxiv.org/pdf/1902.09063.pdf). Each T2 MRI scan found in this dataset was performed on an adult patient (including both healthy adults and adults with non-affective psychotic disorders). Each image has been cropped to a small area around the hippocampus by radiologists prior to training. Ground truth segmentation was performed by experts using three-dimensional software that allows simultaneous analysis of sagittal, coronal and axis images [3](https://www.researchgate.net/publication/12547862_Volumetry_of_Hippocampus_and_Amygdala_with_High-resolution_MRI_and_Three-dimensional_Analysis_Software_Minimizing_the_Discrepancies_between_Laboratories). Outlier volumes were also removed prior to training (those with total volume greater than 300cm3 and those without matching labels).
@@ -12,7 +12,7 @@ The dataset was randomly partitioned into training, validation and test sets (60
 
 Below is a TensorBoard visualisation showing the progress of loss during training.
 
-<img src="https://github.com/callumcanavan/hippocampal-volume-quantification/blob/main/images/loss.png" alt="drawing" width="900"/>
+<img src="https://github.com/callumcanavan/hippocampal-volume-quantification/blob/main/images/loss.png" alt="drawing" width="600"/>
 
 [1] [U-Net: Convolutional Networks for Biomedical Image Segmentation, Ronneberger et al., 2015]( https://arxiv.org/pdf/1505.04597.pdf)
 
