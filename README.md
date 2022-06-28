@@ -12,7 +12,7 @@ The dataset was randomly partitioned into training, validation and test sets (60
 
 Below is a TensorBoard visualisation showing the progress of loss during training.
 
-<img src="https://github.com/callumcanavan/hippocampal-volume-quantification/blob/main/images/loss.png" alt="drawing" width="600"/>
+<img src="https://github.com/callumcanavan/hippocampal-volume-quantification/blob/main/images/loss.png" alt="drawing" width="700"/>
 
 [1] [U-Net: Convolutional Networks for Biomedical Image Segmentation, Ronneberger et al., 2015]( https://arxiv.org/pdf/1505.04597.pdf)
 
