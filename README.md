@@ -1,6 +1,6 @@
 # hippocampal-volume-quantification
 
-Code for training a 3D image segmentation algorithm for cropped brain scans and integrating it into a PACS system for calculating hippocampal volumes.
+Code for training a 3D image segmentation algorithm and integrating it into a PACS system for calculating hippocampal volumes in cropped brain scans.
 The architecture for the system can be seen below. A DICOM file is checked to see if it has been cropped around the hippocampus through HippoCrop, and if so it is divided into slices along the axial dimension and padded with zeros in the sagittal and coronal planes to form 64x64 slices. This tensor is then passed through a segmentation model, and a DICOM report is created and sent back to the viewer with segmentation results and volume calculations.
 
 <img src="https://github.com/callumcanavan/hippocampal-volume-quantification/blob/main/images/architecture.png" alt="drawing" width="800"/>
