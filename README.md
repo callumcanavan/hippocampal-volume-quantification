@@ -20,4 +20,4 @@ Below is a TensorBoard visualisation showing the progress of loss during trainin
 
 [3] [Volumetry of Hippocampus and Amygdala with High-resolution MRI and Three-dimensional Analysis Software: Minimizing the Discrepancies between Laboratories, Pruessner et al., 2000]( https://www.researchgate.net/publication/12547862_Volumetry_of_Hippocampus_and_Amygdala_with_High-resolution_MRI_and_Three-dimensional_Analysis_Software_Minimizing_the_Discrepancies_between_Laboratories)
 
-I completed this project as part of the Udacity AI for Healthcare nanodegree which provided the blank notebooks and several other functionalities. Algorithm implementations, parameter tuning, and the mock Validation Plan were completed by me.
+I completed this project as part of the Udacity AI for Healthcare nanodegree which provided the blank notebooks and some other functionalities. Algorithm implementations, parameter tuning, writeup/interpretation of results, and the mock Validation Plan were completed by me.
